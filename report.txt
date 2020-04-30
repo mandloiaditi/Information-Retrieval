@@ -1,0 +1,155 @@
+Name:ADITI MANDLOI
+Student ID:2017A7PS0160P
+BITS Email: f20170160@pilani.bits-pilani.ac.in
+Wikipedia file used: AD/wiki_22
+
+Note:  Tokenized with removal of punctuations and some non-word characters.
+Total tokens obtained: 1363363
+
+
+Answer 1: 
+a) No. of unique unigrams:  80823
+b) The distribution plot is available in image:
+	linear scale(top 40 words): '1-gram_freqDist.png'
+	log scale: '1-gram_freqDist(Log).png'
+c) Total unique unigrams required to cover 90 % corpus: 14164
+
+Answer 2:
+a) No. of unique bigrams: 651328
+b) The distribution plot is available in image:
+	linear scale(top 40 words): '2-gram_freqDist.png'
+	log scale: '2-gram_freqDist(Log).png'
+c) Total unique bigrams required to cover 80 % corpus: 378656
+
+
+Answer 3:
+a) No. of unique trigrams: 1132526
+b) The distribution plot is available in image:
+	linear scale(top 40 words): '3-gram_freqDist.png'
+	log scale: '3-gram_freqDist(Log).png'
+c) Total unique trigrams required to cover 70 % corpus: 723518
+
+Answer 4:
+a) Unigram analysis after stemming
+  i) No. of unique unigrams:  55100 
+  ii) The distribution plot is available in image:
+	linear scale(top 40 words): 'Stemmed1-gram_freqDist.png'
+	log scale: 'Stemmed1-gram_freqDist(Log).png'
+  iii) Total unique unigrams required to cover 90 % corpus: 6084
+
+b) Bigram analysis after stemming
+  i) No. of unique bigrams: 566415
+  ii) The distribution plot is available in image:
+	linear scale(top 40 words): 'Stemmed2-gram_freqDist.png'
+	log scale: 'Stemmed2-gram_freqDist(Log).png'
+  iii) Total unique bigrams required to cover 80 % corpus: 14425
+
+c) Trigram analysis after stemming
+  i) No. of unique trigrams: 1098417
+  ii) The distribution plot is available in image:
+	linear scale(top 40 words): 'Stemmed3-gram_freqDist.png'
+	log scale: 'Stemmed3-gram_freqDist(Log).png'
+  iii) Total unique trigrams required to cover 70 % corpus: 689409
+
+Answer 5:
+a) Unigram analysis after lemmatization
+  i) No. of unique unigrams: 73607
+  ii) The distribution plot is available in image:
+	linear scale(top 40 words): 'Lemmatized1-gram_freqDist.png'
+	log scale: 'Lemmatized1-gram_freqDist(Log).png'
+  iii) Total unique unigrams required to cover 90 % corpus: 10574
+
+b) Bigram analysis after lemmatization
+  i) No. of unique bigrams: 602863
+  ii) The distribution plot is available in image:
+	linear scale(top 40 words): 'Lemmatized2-gram_freqDist.png'
+	log scale: 'Lemmatized2-gram_freqDist(Log).png'
+  iii) Total unique bigrams required to cover 80 % corpus: 330191
+
+c) Trigram analysis after lemmatization
+  i) No. of unique trigrams: 1106008
+  ii) The distribution plot is available in image:
+	linear scale(top 40 words): 'Lemmatized3-gram_freqDist.png'
+	log scale: 'Lemmatized3-gram_freqDist(Log).png'
+  iii) Total unique trigrams required to cover 70 % corpus: 697000
+
+Answer 6:
+From the linear scale plots we can observe that the relation between a n-gram and its frequency(count) varies inversely (somewhat similar to a 1/x graph).
+Zipf's law states that given a large sample of words used, the frequency of any word is inversely proportional to its rank in the frequency table. So word number n has a frequency proportional to 1/n.
+The plots obtained from the analysis (the linear) show somewhat similar trend as stated by Zipf’s law.
+For example 
+For checking zipf's law:    
+count of most common 1-gram (rank 1):  86918
+count of second common 1-gram (rank 2):  46852
+count of third common 1-gram (rank 3):  39830
+The above output for unigram analysis of tokens (before stemming and lemmatization) show the trend. For example word with rank 2 has almost half of the count of word with rank1.
+Analysis show similar results for other cases as well. 
+
+
+Answer 7:
+Cases where text not tokenized propery:
+Case1:
+It separates text such as “hand-painted”(in the corpus) as “hand ”,”painted”.
+similary for “non-italian”.
+May or may not change the semantics of the text based on use case.
+Case 2: 
+“α-helices” as “α”,helices
+Case 3:
+“170cc” as “170” , “cc”
+Case 4:
+Tokenizes some foreign words incorrectly and non word characters.
+Such as: “Te-go-suk”
+Case 5: Apostrophe tokenized incorrectly
+"Doyle's spiritualist"
+as ["Doyle", "s", "spiritualist"]
+
+Answer 8:
+Library used for tokenization, stemming and lemmatization is ‘nltk’
+TOKENIZATION:
+ “nltk.RegexpTokenizer()`` splits a string into substrings using a regular expression. Inside it’s source code it uses the facilities of re library for the same. ``RegexpTokenizer`` can also use its regexp to match delimiters instead:
+
+https://www.nltk.org/_modules/nltk/tokenize/regexp.html
+
+STEMMING:
+nltk.stem.PorterStemmer()
+It is a word stemmer based on porter stemmer algorithm.A porter stemmer requires all tokens to be of type string.
+The algorithm takes into account some of the following principles:
+    1) A semi-automatically produced lookup table
+    2) Suffix stripping: It does not rely on lookup table instead have few rules stated to stem the word. for eg. if word ends in ‘ed’ remove it etc. Porter Stemmer is based on this approach.
+
+
+LEMMATIZATION:
+nltk.stem.WordNetLemmatizer()
+One major difference with stemming is that lemmatize takes a part of speech parameter, “pos” If not supplied, the default is “noun.” Thus lemmatization takes into consideration context of the word in some sense. Similar to stemming it can also be rule based or achieved through lookups.
+Wordnet Lemmatizer uses WordNet’s built in function morphy and returns input word unchanged if not found in wordnet. ( WordNet is a lexical database for the English language, which was created by Princeton, and is part of the NLTK corpus).
+One can also use part-of speech tagging to avoid over stemming. nltk.post_tag is a pre-trained tagger used for the same.
+
+
+Answer 9:
+Words have been tokenized using a nltk.RegexpTokenizer (exp)
+The regular expression defined tokenizes dates and numeric values as follows
+Example input string: “A-31,983   ₹89365 and date as 19-12-2999, 18 July 2018, $2909 “
+As
+Output string: [“A-31,983”, “₹89365”, ‘and’. ‘date’, ‘as’, “19-12-2999”, “18”, “July”, “2018”, “$2909”]
+
+Example from corpus:
+'over', '3,000', 'slot', 'machines', 'and', '135', 'table'
+'In', 'early', '2013,', 'the', 'hotel', 'completed', 'a', '$50', 'million', 'expansion',
+'On', 'June', '18,', '1922'
+
+
+Answer 10:
+Top 20 collocations in the corpus (considering words above a cut-off frequency) are:
+Observation :  Due to large size of corpus we get more common collocations if we keep cut-off frequency of bigrams being considered more.
+With cut-off frequency around 25:
+Total such bigrams : 3614
+Out of them top 20”
+['Los Angeles', 'Qi Jiguang', 'Hong Kong', 'Las Vegas', 'United States', 'Puerto Rico', 'Kung Fu', 'Forgotten Realms', 'Fu Hustle', 'Sangre Grande', 'Gunatitanand Swami', 'Ice Capades', 'der Heyden', 'Stoney Point', 'Shastriji Maharaj', 'Bankers Trust', 'Austro Hungarian', 'Maj Gen', 'New York', 'Seas Fleet']
+
+With cut-off frequency around 200:
+Total such bigrams : 195
+Out of them top 20”
+['United States', 'New York', 'World War', 'did not', 'such as', 'has been', 'have been', 'can be', 'more than', 'as well', 'had been', 'of the', 'well as', 'known as', 'based on', 'may be', 'There are', 'would be', 'to be', 'It is']
+
+Reference for chi-square test association calculations taken from https://nlp.stanford.edu/fsnlp/promo/colloc.pdf and official documentation of nltk.metrics.association.
+
